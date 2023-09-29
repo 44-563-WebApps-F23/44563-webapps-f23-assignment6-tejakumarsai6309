@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <title>Author Entry</title>
+<body>
+<header>Author Entry Teja Kumar Muppala</header>
+<h2>Getting input</h2>
+
+<form>
+        <label for="hidden_String">The hidden author name</label>
+        <input type ="password" id="hidden_String" name="hidden_String" min=10 max=50 step=2 value=Dickens> <br>
+        <label for="author_name">Guess the author</label>
+        <input type ="text" id="author_name" name="author_name" autofocus> <br>
+        <input type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
+    <p id="result">This text will be replaced </p>
+    <script> 
+    let good=0
+    let oops=0
+    function checkAuthor (){
+        console.log("Getting form values")
+        hidden = document.getElementById("secret_string").value
+        guess = document.getElementById("checkIt").value
+        confirmed = hidden===guess
+        
+        out = document.getElementById("result")
+        if(confirmed){
+            good=good+1
+            alert("You got it right")
+        } else {
+            oops=oops+1
+            alert("Sorry")
+        }
+        out.innerHTML = "Correct guess:"+good+" Wrong answer:"+oops
+    }
+</script>
+
+</body>
+</html> 

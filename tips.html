@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <title>Tips Page</title>    
+    </head>
+<body>
+    <header>Tips of TejaKumar Muppala</header>
+<h2>Getting input</h2>
+
+<form>
+    <label for="Amount">Enter base amount</label>
+    <input type ="number" id="Amount" name="Amount" value=50> <br>
+
+    <label for="Percent">Enter the tip percent </label>
+    <input type ="number" id="Percent" name="Percent" value=15> <br>
+
+    <input class="btn btn-primary mt-3" type="button" onclick="tips()" value="Show tip">
+</form>
+<p id="result">Total Tip </p>
+
+<form>
+    <input type="radio" id="Addition" value="Addition" name="calculation" onclick="chooseOp()">
+    <label for="Addition">sum</label></br>
+  
+    <input type="radio" id="Subtraction" value="Subtraction" name="calculation" onclick="chooseOp()">
+    <label for="Subtraction">diff</label></br>
+  
+    <input type="radio" id="multiplication" value="multiplication" name="calculation" onclick="chooseOp()">
+    <label for="multiplication">mult</label></br>
+  </form>
+  <p id="Total">Calculation </p>
+<script> 
+
+function tips (){
+    let myOutput=""
+    console.log("Getting form values")
+    amount = parseFloat(document.getElementById("Amount").value)
+    percent = parseFloat(document.getElementById("Percent").value)
+    let toShow = '';
+            for (let i = 0; i < 5; i++) {
+                const calculatedTip = (amount * (percent + i * 4)) / 100;
+                toShow += `${percent + i * 4}% is ${calculatedTip.toFixed(2)}; `;
+                console.log(toShow)
+            }
+            document.getElementById('result').innerHTML = 'Tips are: ' + toShow;
+        }
+function chooseOp(){
+            amount = parseFloat(document.getElementById('Amount').value);
+            percentage = parseFloat(document.getElementById('Percent').value);
+            operationRadios = document.getElementsByName('calculation');
+            let selectedOperation
+            for (const radio of operationRadios) {
+                if (radio.checked) {
+                    selectedOperation = radio.value
+                    break;
+                }
+            }
+            console.log(selectedOperation)
+            let resultText
+            switch (selectedOperation) {
+                case 'Addition':
+                    resultText = `Sum of ${amount} and ${percentage} is ${amount + percentage}`
+                    break;
+                case 'Subtraction':
+                    resultText = `Difference between ${amount} and ${percentage} is ${amount - percentage}`
+                    break;
+                case 'multiplication':
+                    resultText = `Product of ${amount} and ${percentage} is ${amount * percentage}`
+                    break;
+                default:
+                    break;
+            }
+            console.log(resultText)
+            document.getElementById('Total').innerHTML = resultText;
+        }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
- <title>Author Entry</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Author Entry</title>
+    </head>
 <body>
 <header>Author Entry Teja Kumar Muppala</header>
-<h2>Getting input</h2>
+<h2 class="display-6">Getting input</h2>
 
 <form>
         <label for="hidden_String">The hidden author name</label>
@@ -25,14 +32,18 @@
         confirmed = hidden===guess
         
         out = document.getElementById("result")
-        if(confirmed){
-            good=good+1
-            alert("You got it right")
-        } else {
-            oops=oops+1
-            alert("Sorry")
-        }
-        out.innerHTML = "Correct guess:"+good+" Wrong answer:"+oops
+    if(confirmed){
+        good=good+1
+        alert("You got it right")
+    }
+    else if(oops==7){
+        alert("Sorry, ran out of guesses.")
+    } 
+    else {
+        oops=oops+1
+        alert("Sorry")
+    }
+    out.innerHTML = "Correct guess:"+good+" Wrong answer:"+oops
     }
     function selectImage(){
 imageValue=document.getElementById("newImage")
@@ -54,7 +65,5 @@ switch (useImage) {
 }
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

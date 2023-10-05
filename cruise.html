@@ -36,7 +36,7 @@
 <p id="updated_Cruise">This text will be replaced </p>
 <script> 
     let my_cruise = {}
-    let Duration_Cruise={}
+    
         function selectCruise() {
             my_cruise = {}
             my_cruise = {
@@ -49,9 +49,9 @@
         function updateCruise() {
         const days = document.getElementById('days').value;
         const price = document.getElementById('price').value;
-        Duration_Cruise['days'] = days;
-        Duration_Cruise['price'] = price;
-        document.getElementById('updated_Cruise').innerHTML = JSON.stringify(Duration_Cruise);
+        my_cruise['days'] = days;
+        my_cruise['price'] = price;
+        document.getElementById('updated_Cruise').innerHTML = JSON.stringify(my_cruise);
     }
 </script>
 </body>
